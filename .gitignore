@@ -173,5 +173,5 @@ cython_debug/
 # -------------------------
 # Ignore in this project
 output/
-testing*
+testing_script_*
 temp_*
