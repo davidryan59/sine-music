@@ -1,7 +1,7 @@
 # Sine Music
 by David Ryan
 
-Making music out of sine waves
+Making music by applying amplitude envelopes to a lot of sine waves of different frequencies
 
 ## Quick Start
 ```
