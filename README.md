@@ -17,4 +17,8 @@ python testing_script.py
 ## Technologies
 - Python
 - Numpy
+- Scipy
 - Git
+- Pre-commit
+- Flake8
+- Black
