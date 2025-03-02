@@ -12,3 +12,8 @@ def get_simple_envelope() -> Envelope:
 def test_simple_envelope_ref_time():
     envelope: Envelope = get_simple_envelope()
     assert envelope.ref_time == 0.1
+
+
+# TODO
+# - Add more tests
+# - Want to test that copied object identities are different
