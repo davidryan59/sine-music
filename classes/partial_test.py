@@ -14,10 +14,11 @@ def get_simple_partial() -> Partial:
 
 
 def test_simple_partial_ref_time():
-    partial: Partial = get_simple_partial()
-    assert partial.envelope.ref_time == 0.1
+    p1: Partial = get_simple_partial()
+    assert p1.envelope.ref_time == 0.1
 
 
 # TODO
 # - Add more tests to * / + - ** // @
 # - Want to test that copied object identities are different
+# - Test the operations both ways round (should be commutative)

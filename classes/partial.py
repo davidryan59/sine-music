@@ -44,3 +44,12 @@ class Partial:
             return Partial(freq=self.freq * other, envelope=copy(self.envelope))
         else:
             raise Exception("Could not multiply frequency of Partial by non-numeric argument")
+
+    # All operations above are commutative, allow them to be called either way round
+    __rmul__ = __mul__
+    __rtruediv__ = __truediv__
+    __radd__ = __add__
+    __rsub__ = __sub__
+    __rpow__ = __pow__
+    __rfloordiv__ = __floordiv__
+    __rmatmul__ = __matmul__
