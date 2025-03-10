@@ -81,3 +81,11 @@ class Envelope:
             return self ** (1 / other)
         else:
             raise Exception("Could not divide Envelope times")
+
+    # All operations above are commutative, allow them to be called either way round
+    __rmul__ = __mul__
+    __rtruediv__ = __truediv__
+    __radd__ = __add__
+    __rsub__ = __sub__
+    __rpow__ = __pow__
+    __rfloordiv__ = __floordiv__
