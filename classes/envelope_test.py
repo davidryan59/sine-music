@@ -87,6 +87,24 @@ def test_simple_envelope_rfloordiv():
     assert tuple(e1.times) == tuple(e2.times)
 
 
+def test_simple_envelope_mul_div():
+    e1: Envelope = get_simple_envelope() * 2.64
+    e2: Envelope = get_simple_envelope() / (1 / 2.64)
+    assert tuple(e1.amplitudes) == tuple(e2.amplitudes)
+
+
+def test_simple_envelope_add_sub():
+    e1: Envelope = get_simple_envelope() + 2.64
+    e2: Envelope = get_simple_envelope() - (0 - 2.64)
+    assert tuple(e1.times) == tuple(e2.times)
+
+
+def test_simple_envelope_pow_floordiv():
+    e1: Envelope = get_simple_envelope() ** 2.64
+    e2: Envelope = get_simple_envelope() // (1 / 2.64)
+    assert tuple(e1.times) == tuple(e2.times)
+
+
 # # TODO
 # # - Add more tests
 # # - Want to test that copied object identities are different
