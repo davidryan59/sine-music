@@ -1,3 +1,4 @@
+import pytest
 from classes.envelope import Envelope
 
 
@@ -14,6 +15,16 @@ def test_simple_envelope_ref_time():
     assert e1.ref_time == 0.1
 
 
+def test_simple_envelope_mult_times():
+    e2: Envelope = get_simple_envelope() * 2.4
+    assert tuple(e2.times) == (0, 0.1, 0.5, 3)
+
+
+def test_simple_envelope_mult_amps():
+    e2: Envelope = get_simple_envelope() * 2.4
+    assert tuple(e2.amplitudes) == (0, 2.4, 0.6, 0)
+
+
 def test_simple_envelope_add_times():
     e2: Envelope = get_simple_envelope() + 2.4
     assert tuple(e2.times) == (2.4, 2.5, 2.9, 5.4)
@@ -24,14 +35,14 @@ def test_simple_envelope_add_amps():
     assert tuple(e2.amplitudes) == (0, 1, 0.25, 0)
 
 
-def test_simple_envelope_mult_times():
-    e2: Envelope = get_simple_envelope() * 2.4
-    assert tuple(e2.times) == (0, 0.1, 0.5, 3)
+def test_simple_envelope_pow_times():
+    e2: Envelope = get_simple_envelope() ** 2.4
+    assert tuple(e2.times) == pytest.approx((-0.14, 0.1, 1.06, 7.06))
 
 
-def test_simple_envelope_mult_amps():
-    e2: Envelope = get_simple_envelope() * 2.4
-    assert tuple(e2.amplitudes) == (0, 2.4, 0.6, 0)
+def test_simple_envelope_pow_amps():
+    e2: Envelope = get_simple_envelope() ** 2.4
+    assert tuple(e2.amplitudes) == (0, 1, 0.25, 0)
 
 
 def test_simple_envelope_mult_ids():
