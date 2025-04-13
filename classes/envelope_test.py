@@ -1,5 +1,6 @@
 import pytest
 from classes.envelope import Envelope
+from copy import copy
 
 
 def get_simple_envelope() -> Envelope:
@@ -103,6 +104,30 @@ def test_simple_envelope_pow_floordiv():
     e1: Envelope = get_simple_envelope() ** 2.64
     e2: Envelope = get_simple_envelope() // (1 / 2.64)
     assert tuple(e1.times) == tuple(e2.times)
+
+
+def test_simple_envelope_copy_times_same():
+    e1: Envelope = get_simple_envelope()
+    e2: Envelope = copy(e1)
+    assert tuple(e1.times) == tuple(e2.times)
+
+
+def test_simple_envelope_copy_amplitudes_same():
+    e1: Envelope = get_simple_envelope()
+    e2: Envelope = copy(e1)
+    assert tuple(e1.amplitudes) == tuple(e2.amplitudes)
+
+
+def test_simple_envelope_copy_ref_time_same():
+    e1: Envelope = get_simple_envelope()
+    e2: Envelope = copy(e1)
+    assert e1.ref_time == e2.ref_time
+
+
+def test_simple_envelope_copy_id_different():
+    e1: Envelope = get_simple_envelope()
+    e2: Envelope = copy(e1)
+    assert id(e1) != id(e2)
 
 
 # # TODO
