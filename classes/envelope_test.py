@@ -14,6 +14,16 @@ def test_simple_envelope_ref_time():
     assert e1.ref_time == 0.1
 
 
+def test_simple_envelope_add_times():
+    e2: Envelope = get_simple_envelope() + 2.4
+    assert tuple(e2.times) == (2.4, 2.5, 2.9, 5.4)
+
+
+def test_simple_envelope_add_amps():
+    e2: Envelope = get_simple_envelope() + 2.4
+    assert tuple(e2.amplitudes) == (0, 1, 0.25, 0)
+
+
 def test_simple_envelope_mult_times():
     e2: Envelope = get_simple_envelope() * 2.4
     assert tuple(e2.times) == (0, 0.1, 0.5, 3)
