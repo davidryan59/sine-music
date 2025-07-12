@@ -3,6 +3,12 @@ from classes.envelope import Envelope
 
 
 # A Partial is an Envelope applied to a specific frequency of sine wave
+# Operations
+# Let p be a partial, and n be a number:
+# p * n = n * p scales the envelope's amplitudes by n
+# p + n = n + p shifts the envelope's times and ref_time by n
+# p ** n = n ** p scales the envelop's times by n, centered on envelope's ref_time
+# p1 + p2 needs to return a new Music on p1, p2 (how to do this? circular imports?)
 class Partial:
     def __init__(self, freq: float, envelope: Envelope):
         self.freq: float = freq
