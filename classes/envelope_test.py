@@ -128,8 +128,3 @@ def test_simple_envelope_copy_id_different():
     e1: Envelope = get_simple_envelope()
     e2: Envelope = copy(e1)
     assert id(e1) != id(e2)
-
-
-# # TODO
-# # - Add more tests
-# # - Want to test that copied object identities are different

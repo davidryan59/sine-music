@@ -14,6 +14,14 @@ import numpy as np
 # - amplitudes should be numeric and non-negative, normally between 0 and 1 if applied to a sine wave (>1 gives distortion)
 # - amplitudes should normally start and end with 0, to give smooth waveform when applied to a sine wave
 # Currently these conditions are not checked.
+
+
+# Operations
+# Let e be an envelope, and n be a number:
+# e * n = n * e scales the amplitudes by n
+# e + n = n + e shifts the times and ref_time by n
+# e ** n = n ** e scales the times by n, centered on ref_time
+# e1 + e2 combines the two amplitudes in a linear way, ref_time taken from e1
 class Envelope:
     def __init__(self, times: np.array, amplitudes: np.array, ref_time: float = 0):
         self.times: np.array = np.array(times)
